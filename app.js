@@ -7,7 +7,7 @@ const delRoute = require('./routes/delete');
 const findRoute = require('./routes/find')
 const updateRoute = require('./routes/update');
 const usersRoute = require('./routes/users');
-
+const authRoute = require("./routes/middleware")
 
 const app = express();
 app.use(cors())
@@ -25,6 +25,7 @@ app.use('/delete', delRoute)
 app.use('/find', findRoute)
 app.use('/update', updateRoute)
 app.use('/users', usersRoute)
+app.use('/auth', authRoute)
 
 const url = require("./database").url
 mongoose.connect(url, {useUnifiedTopology: true,  useNewUrlParser: true});
